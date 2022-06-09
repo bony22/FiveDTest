@@ -143,8 +143,8 @@ class AllListCharacter extends Component {
 
 
                 <View style={{ width: '100%', height: '10%', justifyContent: 'center', flexDirection: "row", backgroundColor: '#000' }}>
-                    <View style={{ width: '45%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 15, marginLeft: 10, color: '#fff', fontFamily: 'Roboto-Bold' }}>The Breaking Bad</Text>
+                    <View style={{ width: '50%', alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 20, marginLeft: 10, color: '#fff', fontFamily: 'Roboto-Bold' }}>The Breaking Bad</Text>
                     </View>
 
                     <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>

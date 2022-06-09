@@ -17,11 +17,11 @@ class AddedFav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-           
+
             indicatorLoading: true,
             result11: [],
             Currentlocation: '',
-         
+
             dataSource: [],
             name: '',
             nickname: '',
@@ -45,47 +45,7 @@ class AddedFav extends Component {
         };
     }
 
-    // componentDidMount() {
-    //     this.fetchData()
 
-    // }
-
-    // fetchData = async () => {
-    //     try {
-    //         const response = await fetch('https://www.breakingbadapi.com/api/characters');
-    //         const json = await response.json();
-    //         console.log(json);
-    //         this.setState({
-    //             dataSource: json
-    //         })
-    //         console.log('first', this.state.dataSource)
-    //     } catch (error) {
-    //         console.log("error", error);
-    //     }
-    // };
-
-
-
-
-
-
-    // onPressItem = async (data4) => {
-    //     console.log('objectyyyyyyy',data4)
-
-       
-
-    //     this.props.dispatch(addToCart(data4)) //update krche as a setstate
-    //     // ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
-
-    //     // }
-
-    //     // else{
-
-    //     //     ToastAndroid.show('Already Added to your Cart ',ToastAndroid.SHORT)
-    //     // }
-
-
-    // }
 
 
     list1 = () => {
@@ -109,7 +69,7 @@ class AddedFav extends Component {
                             numberOfLines={1} style={{ fontSize: 13, fontWeight: 'bold', color: '#fff', }}>{item.name}</Text>
 
                         <Pressable style={{}}
-                            // onPress={() => this.onPressItem(item)}
+                        // onPress={() => this.onRemovePressItem(item)}
                         >
                             <FavBorder name='favorite-border' type='MaterialIcons' style={{ fontSize: 20, color: 'red', }} />
                         </Pressable>
@@ -139,17 +99,17 @@ class AddedFav extends Component {
 
 
 
-                <View style={{ width: '100%', height: '10%', justifyContent: 'center', flexDirection: "row", backgroundColor: '#000' }}>
+                <View style={{ width: '100%', height: '15%', justifyContent: 'center', flexDirection: "row",  }}>
                     <View style={{ width: '45%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 15, marginLeft: 10, color: '#fff', }}>Favourites</Text>
+                        <Text style={{ fontSize: 20, marginLeft: 10, color: '#fff', fontFamily:'Roboto-Bold' }}>Favourites</Text>
                     </View>
 
-                    <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    {/* <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}> */}
 
-                      
 
-                        <TouchableOpacity style={{ width: '25%', }}
-onPress={()=> this.props.navigation.navigate('AllListCharacter')}
+
+                        <TouchableOpacity style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}
+                            onPress={() => this.props.navigation.navigate('AllListCharacter')}
                         >
                             <FavIcon name='cross' type='Entypo' style={{
 
@@ -159,7 +119,7 @@ onPress={()=> this.props.navigation.navigate('AllListCharacter')}
 
                             }} />
                         </TouchableOpacity>
-                    </View>
+                    {/* </View> */}
                 </View>
 
                 <ScrollView>
@@ -185,7 +145,7 @@ onPress={()=> this.props.navigation.navigate('AllListCharacter')}
 
 
 const mapStateToProps = (state) => {
-    
+
     return {
 
         cartItems: state.AddInformation.cartItems
@@ -202,7 +162,7 @@ export default connect(mapStateToProps)(AddedFav);
 const styles = StyleSheet.create({
 
     mainview: {
-        // flex: 1,
+        flex: 1,
         backgroundColor: '#000',
 
 
