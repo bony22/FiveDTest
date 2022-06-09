@@ -17,15 +17,11 @@ class AddedFav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //data:'',
-            //cat_id:'',
+           
             indicatorLoading: true,
-            //indicatorResult:true,
             result11: [],
-            // testIdd: this.props.navigation.getParam('personalcareId'),
-            image_urll: '',
             Currentlocation: '',
-            ecomaddCart: {},
+         
             dataSource: [],
             name: '',
             nickname: '',
@@ -49,47 +45,47 @@ class AddedFav extends Component {
         };
     }
 
-    componentDidMount() {
-        this.fetchData()
+    // componentDidMount() {
+    //     this.fetchData()
 
-    }
+    // }
 
-    fetchData = async () => {
-        try {
-            const response = await fetch('https://www.breakingbadapi.com/api/characters');
-            const json = await response.json();
-            console.log(json);
-            this.setState({
-                dataSource: json
-            })
-            console.log('first', this.state.dataSource)
-        } catch (error) {
-            console.log("error", error);
-        }
-    };
-
-
+    // fetchData = async () => {
+    //     try {
+    //         const response = await fetch('https://www.breakingbadapi.com/api/characters');
+    //         const json = await response.json();
+    //         console.log(json);
+    //         this.setState({
+    //             dataSource: json
+    //         })
+    //         console.log('first', this.state.dataSource)
+    //     } catch (error) {
+    //         console.log("error", error);
+    //     }
+    // };
 
 
 
 
-    onPressItem = async (data4) => {
-        console.log('objectyyyyyyy',data4)
+
+
+    // onPressItem = async (data4) => {
+    //     console.log('objectyyyyyyy',data4)
 
        
 
-        this.props.dispatch(addToCart(data4)) //update krche as a setstate
-        // ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
+    //     this.props.dispatch(addToCart(data4)) //update krche as a setstate
+    //     // ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
 
-        // }
+    //     // }
 
-        // else{
+    //     // else{
 
-        //     ToastAndroid.show('Already Added to your Cart ',ToastAndroid.SHORT)
-        // }
+    //     //     ToastAndroid.show('Already Added to your Cart ',ToastAndroid.SHORT)
+    //     // }
 
 
-    }
+    // }
 
 
     list1 = () => {
@@ -113,7 +109,7 @@ class AddedFav extends Component {
                             numberOfLines={1} style={{ fontSize: 13, fontWeight: 'bold', color: '#fff', }}>{item.name}</Text>
 
                         <Pressable style={{}}
-                            onPress={() => this.onPressItem(item)}
+                            // onPress={() => this.onPressItem(item)}
                         >
                             <FavBorder name='favorite-border' type='MaterialIcons' style={{ fontSize: 20, color: 'red', }} />
                         </Pressable>

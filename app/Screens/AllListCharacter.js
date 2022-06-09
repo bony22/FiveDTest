@@ -17,15 +17,14 @@ class AllListCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //data:'',
-            //cat_id:'',
+
             indicatorLoading: true,
-            //indicatorResult:true,
+
             result11: [],
-            // testIdd: this.props.navigation.getParam('personalcareId'),
+
             image_urll: '',
-            Currentlocation: '',
-            ecomaddCart: {},
+
+
             dataSource: [],
             name: '',
             nickname: '',
@@ -74,11 +73,11 @@ class AllListCharacter extends Component {
 
 
     onPressItem = async (data4) => {
-        console.log('objectyyyyyyy',data4)
+        console.log('objectyyyyyyy', data4)
 
-       
 
-        this.props.dispatch(addToCart(data4)) //update krche as a setstate
+
+        this.props.dispatch(addToCart(data4))
         // ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
 
         // }
@@ -110,7 +109,7 @@ class AllListCharacter extends Component {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text
 
-                            numberOfLines={1} style={{ fontSize: 13,fontFamily:'Roboto-Bold', color: '#fff', }}>{item.name}</Text>
+                            numberOfLines={1} style={{ fontSize: 13, fontFamily: 'Roboto-Bold', color: '#fff', }}>{item.name}</Text>
 
                         <Pressable style={{}}
                             onPress={() => this.onPressItem(item)}
@@ -122,7 +121,7 @@ class AllListCharacter extends Component {
                     </View>
 
                     <Text
-                        style={{ fontSize: 11, color: '#AEAEAE',fontFamily:'Roboto-Thin' }}>{item.nickname}</Text>
+                        style={{ fontSize: 11, color: '#AEAEAE', fontFamily: 'Roboto-Thin' }}>{item.nickname}</Text>
 
 
 
@@ -145,7 +144,7 @@ class AllListCharacter extends Component {
 
                 <View style={{ width: '100%', height: '10%', justifyContent: 'center', flexDirection: "row", backgroundColor: '#000' }}>
                     <View style={{ width: '45%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 15, marginLeft: 10, color: '#fff',fontFamily:'Roboto-Bold' }}>The Breaking Bad</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 10, color: '#fff', fontFamily: 'Roboto-Bold' }}>The Breaking Bad</Text>
                     </View>
 
                     <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
@@ -163,7 +162,7 @@ class AllListCharacter extends Component {
                         </TouchableOpacity>
 
                         <TouchableOpacity style={{ width: '25%', }}
-onPress={()=> this.props.navigation.navigate('AddedFav')}
+                            onPress={() => this.props.navigation.navigate('AddedFav')}
                         >
                             <FavIcon name='favorite' type='MaterialIcons' style={{
 
@@ -180,7 +179,7 @@ onPress={()=> this.props.navigation.navigate('AddedFav')}
 
 
 
-                    <View style={{  flexWrap: 'wrap', flexDirection: 'row', }}>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row', }}>
 
                         {this.list1()}
                     </View>
@@ -199,7 +198,7 @@ onPress={()=> this.props.navigation.navigate('AddedFav')}
 
 
 const mapStateToProps = (state) => {
-    console.log("state.AddInformation.cartItems",state.AddInformation.cartItems)
+    console.log("state.AddInformation.cartItems", state.AddInformation.cartItems)
     return {
 
         cartItems: state.AddInformation.cartItems
@@ -218,7 +217,7 @@ const styles = StyleSheet.create({
     mainview: {
         // flex: 1,
         backgroundColor: '#000',
-        borderWidth:1
+        borderWidth: 1
 
 
     },

@@ -1,9 +1,4 @@
 
-export const ADD_INFO='ADD_INFO'
-
-export const FETCH_INFO='FETCH_INFO'
-
-
 
 
 export const ADD_TO_CART='ADD_TO_CART'
