@@ -8,7 +8,7 @@ import FavIcon from 'react-native-vector-icons/MaterialIcons'
 import FavBorder from 'react-native-vector-icons/MaterialIcons'
 import { connect } from 'react-redux';
 import { addToCart } from '../Redux/Action'
-
+import { SearchBar } from 'react-native-elements';
 
 
 const { height, width } = Dimensions.get('window');
@@ -28,7 +28,9 @@ class AllListCharacter extends Component {
             dataSource: [],
             name: '',
             nickname: '',
-            imgg: ''
+            imgg: '',
+            masterDataSource: [],
+            search: ''
 
 
 
@@ -59,35 +61,50 @@ class AllListCharacter extends Component {
             const json = await response.json();
             console.log(json);
             this.setState({
-                dataSource: json
+                dataSource: json,
+                masterDataSource: json
             })
-            console.log('first', this.state.dataSource)
+            console.log('masterDataSource', this.state.masterDataSource)
         } catch (error) {
             console.log("error", error);
         }
     };
 
 
+    searchFilterFunction = (text) => {
+        // Check if searched text is not blank
+        if (text) {
+            // Inserted text is not blank
+            // Filter the masterDataSource
+            // Update FilteredDataSource
+            const newData = this.state.masterDataSource.filter(function (item) {
+                const itemData = item.name
+                    ? item.name.toUpperCase()
+                    : ''.toUpperCase();
+                const textData = text.toUpperCase();
+                return itemData.indexOf(textData) > -1;
+            });
+            this.setState({
+                dataSource: newData,
+                search: text
+            })
+        } else {
+            // Inserted text is blank
+            // Update FilteredDataSource with masterDataSource
+            this.setState({
+                dataSource: this.state.masterDataSource,
+                search: text
+            })
 
+        }
+    };
 
 
 
     onPressItem = async (data4) => {
-        console.log('objectyyyyyyy', data4)
-
-
-
+        // console.log('objectyyyyyyy', data4)
         this.props.dispatch(addToCart(data4))
-        // ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
-
-        // }
-
-        // else{
-
-        //     ToastAndroid.show('Already Added to your Cart ',ToastAndroid.SHORT)
-        // }
-
-
+        ToastAndroid.show(' Press Green Heart Icon to See Favourite', ToastAndroid.LONG);
     }
 
 
@@ -142,14 +159,14 @@ class AllListCharacter extends Component {
 
 
 
-                <View style={{ width: '100%', height: '10%', justifyContent: 'center', flexDirection: "row", backgroundColor: '#000' }}>
+                <View style={{ width: '100%', height: '8%', justifyContent: 'center', flexDirection: "row", backgroundColor: '#000' }}>
                     <View style={{ width: '50%', alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ fontSize: 20, marginLeft: 10, color: '#fff', fontFamily: 'Roboto-Bold' }}>The Breaking Bad</Text>
                     </View>
 
                     <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
 
-                        <TouchableOpacity style={{ width: '25%', }}
+                        {/* <TouchableOpacity style={{ width: '25%', }}
 
                         >
                             <SearchIcon name='search' type='Feather' style={{
@@ -159,7 +176,7 @@ class AllListCharacter extends Component {
                                 //    marginLeft: 15
 
                             }} />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
                         <TouchableOpacity style={{ width: '25%', }}
                             onPress={() => this.props.navigation.navigate('AddedFav')}
@@ -173,6 +190,17 @@ class AllListCharacter extends Component {
                             }} />
                         </TouchableOpacity>
                     </View>
+                </View>
+                <View style={styles.container}>
+                    <SearchBar
+                        round
+                        searchIcon={{ size: 24 }}
+                        onChangeText={(text) => this.searchFilterFunction(text)}
+                        onClear={(text) => this.searchFilterFunction('')}
+                        placeholder="Type Here..."
+                        value={this.state.search}
+                    />
+
                 </View>
 
                 <ScrollView>
